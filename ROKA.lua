@@ -56,7 +56,7 @@ end
 else
 print('\27[1;34m لم يتم حفظ التوكن ارسل لي التوكن الان |')
 end 
-os.execute('lua STORM.lua')
+os.execute('lua ROKA.lua')
 end
 if not tahadevstorm:get(DEVSTORM..":SUDO:ID") then
 io.write('\27[1;31m ↡ ارسل ايدي مطور الاساسي |\n SEND ID FOR SIDO : \27[0;39;49m')
@@ -67,7 +67,7 @@ tahadevstorm:set(DEVSTORM..":SUDO:ID",SUDOID)
 else
 print('\n\27[1;34m لم يتم حفظ ايدي المطور |')
 end 
-os.execute('lua STORM.lua')
+os.execute('lua ROKA.lua')
 end
 if not tahadevstorm:get(DEVSTORM..":SUDO:USERNAME") then
 io.write('\27[1;31m ↡ ارسل معرف المطور الاساسي |\n SEND ID FOR SIDO : \27[0;39;49m')
@@ -78,7 +78,7 @@ tahadevstorm:set(DEVSTORM..":SUDO:USERNAME",'@'..SUDOUSERNAME)
 else
 print('\n\27[1;34m لم يتم حفظ معرف المطور |')
 end 
-os.execute('lua STORM.lua')
+os.execute('lua ROKA.lua')
 end
 local create_config_auto = function()
 config = {
@@ -829,7 +829,7 @@ if res == 200 then
 os.execute("rm -fr plugins_/"..file)
 storm_sendMsg(msg.chat_id_, msg.id_, 1,t, 1, 'md') 
 ReloadPlugins()
-dofile('STORM.lua')  
+dofile('ROKA.lua')  
 else
 storm_sendMsg(msg.chat_id_, msg.id_, 1,"*📮¦ عذرا لا يوجد هاكذا ملف في المتجر *\n", 1, 'md') 
 end
@@ -850,13 +850,13 @@ chek:write(json_file)
 chek:close()
 storm_sendMsg(msg.chat_id_, msg.id_, 1,t, 1, 'md') 
 ReloadPlugins()
-dofile('STORM.lua')  
+dofile('ROKA.lua')  
 else
 storm_sendMsg(msg.chat_id_, msg.id_, 1,"*📮¦ عذرا لا يوجد هاكذا ملف في المتجر *\n", 1, 'md') 
 end
 end
 if text == 'تحديث' and is_devtaha(msg) then  
-dofile('STORM.lua')  
+dofile('ROKA.lua')  
 ReloadPlugins()
 storm_sendMsg(msg.chat_id_, msg.id_, 1, '*📮¦ تم تحديث الملفات ♻* \n', 1, 'md') 
 end 
@@ -1899,7 +1899,7 @@ if text == 'تفعيل البوت الخدمي 🎮' and is_devtaha(msg) then lo
 if text == 'تعطيل البوت الخدمي 🚸' and is_devtaha(msg) then taha = '*📛¦*تم تعطيل البوت الخدمي  ❌' storm_sendMsg( msg.chat_id_, msg.id_, 1, taha, 1, "md") tahadevstorm:set(DEVSTOR..'lock:bot:free'..bot_id,true) end
 if text == 'تفعيل تواصل 📨' and is_devtaha(msg) then local  taha = '*📛¦*تم تفعيل بوت التواصل  ✔' storm_sendMsg( msg.chat_id_, msg.id_, 1, taha, 1, "md") tahadevstorm:del(DEVSTOR..'lock:botl'..bot_id) end 
 if text == 'تعطيل تواصل 📩' and is_devtaha(msg) then taha = '*📛¦*تم تعطيل التواصل  ❌' storm_sendMsg( msg.chat_id_, msg.id_, 1, taha, 1, "md") tahadevstorm:set(DEVSTOR..'lock:botl'..bot_id,true) end
-if text == 'تحديث ♻' and is_devtaha(msg) then  local filed = io.popen('ls plugins_'):lines() for files in filed do if files:match(".lua$") then end end dofile('STORM.lua') ReloadPlugins() io.popen("rm -rf ~/.telegram-cli/data/audio/*") io.popen("rm -rf ~/.telegram-cli/data/document/*") io.popen("rm -rf ~/.telegram-cli/data/photo/*") io.popen("rm -rf ~/.telegram-cli/data/sticker/*") io.popen("rm -rf ~/.telegram-cli/data/temp/*") io.popen("rm -rf ~/.telegram-cli/data/thumb/*") io.popen("rm -rf ~/.telegram-cli/data/video/*") io.popen("rm -rf ~/.telegram-cli/data/voice/*") io.popen("rm -rf ~/.telegram-cli/data/profile_photo/*")   storm_sendMsg(msg.chat_id_, msg.id_, 1, '*📛¦* تم تحديث البوت', 1, 'md') end 
+if text == 'تحديث ♻' and is_devtaha(msg) then  local filed = io.popen('ls plugins_'):lines() for files in filed do if files:match(".lua$") then end end dofile('ROKA.lua') ReloadPlugins() io.popen("rm -rf ~/.telegram-cli/data/audio/*") io.popen("rm -rf ~/.telegram-cli/data/document/*") io.popen("rm -rf ~/.telegram-cli/data/photo/*") io.popen("rm -rf ~/.telegram-cli/data/sticker/*") io.popen("rm -rf ~/.telegram-cli/data/temp/*") io.popen("rm -rf ~/.telegram-cli/data/thumb/*") io.popen("rm -rf ~/.telegram-cli/data/video/*") io.popen("rm -rf ~/.telegram-cli/data/voice/*") io.popen("rm -rf ~/.telegram-cli/data/profile_photo/*")   storm_sendMsg(msg.chat_id_, msg.id_, 1, '*📛¦* تم تحديث البوت', 1, 'md') end 
 if text == "وضع اسم البوت ⚡" and is_devtaha(msg) then tahadevstorm:setex(DEVSTOR..'namebot:witting'..msg.sender_user_id_,300,true) storm_sendMsg(msg.chat_id_, msg.id_, 1, "*📛¦* ارسل لي الاسم 📯\n",1, 'md')  end
 if text == 'مسح المميزين عام 🌟' and is_devtaha(msg) then      local list = tahadevstorm:smembers(DEVSTOR..'vip:groups')    if #list == 0 then  storm_sendMsg(msg.chat_id_, msg.id_, 1,'*📮¦* لا يوجد مميزين عام ليتم مسحهم\n', 1, 'md')   return false  end  local num = 0  for k,v in pairs(list) do    tahadevstorm:srem(DEVSTOR.."vip:groups",v)    num = num + 1  end   storm_sendMsg(msg.chat_id_, msg.id_, 1,'*📬¦ تم مسح {'..num..'} من المميزين عام *\n', 1, 'md')   end
 if text == 'مسح المطورين 👮' and is_devtaha(msg) then     local list = tahadevstorm:smembers(DEVSTOR..'sudo:bot')    if #list == 0 then  storm_sendMsg(msg.chat_id_, msg.id_, 1,'*📮¦* لا يوجد مطورين ليتم مسحهم\n', 1, 'md')   return false  end  local num = 0  for k,v in pairs(list) do    tahadevstorm:srem(DEVSTOR.."sudo:bot",v)    num = num + 1  end   storm_sendMsg(msg.chat_id_, msg.id_, 1,'*📬¦ تم مسح {'..num..'} من المطورين *\n', 1, 'md')   end
@@ -1930,7 +1930,7 @@ os.execute('wget https://raw.githubusercontent.com/STORMBOT/ROKA/master/ROKA.lua
 os.execute('cd plugins_;wget https://raw.githubusercontent.com/STORMBOT/ROKA/master/plugins_/help_rep.lua') 
 sleep(0.5) 
 storm_sendMsg(msg.chat_id_, msg.id_, 1, '🚸*¦* تم تحديث ♻ السورس ✔ ', 1, 'md') 
-dofile('STORM.lua')  
+dofile('ROKA.lua')  
 end
 if text == 'مسح المشتركين 💯' and is_devtaha(msg) then     local list = tahadevstorm:smembers(DEVSTOR..'usersbot')     local pv = 0  for k,v in pairs(list) do      tahadevstorm:srem(DEVSTOR..'usersbot',v)    pv = pv + 1  end     storm_sendMsg(msg.chat_id_, msg.id_, 1, '*🎲¦ تم مسح » ❪'..pv..'❫ من المشتركين *\n', 1, 'md')   end  
 if text == 'مسح المجموعات 💯' and is_devtaha(msg) then   local lgp = tahadevstorm:smembers(DEVSTOR.."bot:gpsby:id")   local lsug = tahadevstorm:smembers(DEVSTOR.."botgps")   local lgpn = tahadevstorm:scard(DEVSTOR.."bot:gpsby:id")   local lsugn = tahadevstorm:scard(DEVSTOR.."bot:gpsby:id")   for k,v in pairs(lgp) do   rem_group(v)     changeChatMemberStatus(v, bot_id, "Left")    end   for k,v in pairs(lsug) do    rem_group(v)     changeChatMemberStatus(v, bot_id, "Left")    end   storm_sendMsg(msg.chat_id_, msg.id_, 1,"*📮¦* تم مغادره البوت من » ❪"..lsugn.."❫ مجموعات \n✓", 1, 'md')   end
@@ -4045,7 +4045,7 @@ storm_sendMsg(msg.chat_id_, msg.id_, 1,t, 1, 'md')
 end
 if text then 
 if is_mod(msg) then
-if text == 'ارسال نسخه' and is_devtaha(msg) then  sendDocument(SUDO, 0, 0, 1, nil, './STORM.lua', '🚸¦اسم الملف ( STORM.lua )\n♻¦عدد المشتركين ( '..(tahadevstorm:scard(DEVSTOR.."usersbot") or 0)..' )\n📮¦عدد المجموعات ( '..(tahadevstorm:scard(DEVSTOR.."botgps") or 0)..' )',dl_cb, nil)  end
+if text == 'ارسال نسخه' and is_devtaha(msg) then  sendDocument(SUDO, 0, 0, 1, nil, './ROKA.lua', '🚸¦اسم الملف ( ROKA.lua )\n♻¦عدد المشتركين ( '..(tahadevstorm:scard(DEVSTOR.."usersbot") or 0)..' )\n📮¦عدد المجموعات ( '..(tahadevstorm:scard(DEVSTOR.."botgps") or 0)..' )',dl_cb, nil)  end
 if text == 'اذاعه خاص' and tonumber(msg.reply_to_message_id_) > 0 and is_devtaha(msg) then 
 function cb(a,b,c) 
 if b.content_.text_ then
@@ -4186,7 +4186,7 @@ os.execute('wget https://raw.githubusercontent.com/STORMBOT/ROKA/master/ROKA.lua
 os.execute('cd plugins_;wget https://raw.githubusercontent.com/STORMBOT/ROKA/master/plugins_/help_rep.lua') 
 sleep(0.5) 
 storm_sendMsg(msg.chat_id_, msg.id_, 1, '🚸*¦* تم تحديث ♻ السورس ✔ ', 1, 'md') 
-dofile('STORM.lua')  
+dofile('ROKA.lua')  
 end
 if text == 'الاحصائيات' and is_devtaha(msg) then  
 local grall = tahadevstorm:scard(DEVSTOR.."botgps") or 0  
@@ -10423,17 +10423,17 @@ end
 local filess = io.open("requfiles/JSON.lua","r")
 if not filess then
 os.execute('cd requfiles ;wget https://raw.githubusercontent.com/NOVAR1/NOVAR1/master/requfiles/JSON.lua') 
-dofile('STORM.lua')  
+dofile('ROKA.lua')  
 end
 local filess = io.open("requfiles/dkjson.lua","r")
 if not filess then
 os.execute('cd requfiles ;wget https://raw.githubusercontent.com/NOVAR1/NOVAR1/master/requfiles/dkjson.lua') 
-dofile('STORM.lua')  
+dofile('ROKA.lua')  
 end
 local filess = io.open("requfiles/serpent.lua","r")
 if not filess then
 os.execute('cd requfiles ;wget https://raw.githubusercontent.com/NOVAR1/NOVAR1/master/requfiles/serpent.lua') 
-dofile('STORM.lua')  
+dofile('ROKA.lua')  
 end
 local list = tahadevstorm:smembers(DEVSTOR.."usersbot")
 for k,v in pairs(list) do
