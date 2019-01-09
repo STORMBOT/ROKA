@@ -89,7 +89,7 @@ create(config, "./requfiles/INFO.lua")
 config_file(tahadevstorm:get(DEVSTORM..":SUDO:ID"),tahadevstorm:get(DEVSTORM..":SUDO:USERNAME"),tahadevstorm:get(DEVSTORM..":token"))
 end 
 create_config_auto()
-file = io.open("STORM.sh", "w")  
+file = io.open("ROKA.sh", "w")  
 file:write([[
 #!/bin/bash 
 token="]]..tahadevstorm:get(DEVSTORM..":token")..[["
@@ -97,22 +97,22 @@ while(true) do
 rm -fr ../.telegram-cli
 echo -e ""
 echo -e ""
-./tg -s ./STORM.lua $@ --bot=$token
+./tg -s ./ROKA.lua $@ --bot=$token
 done
 ]])  
 file:close()  
-file = io.open("SM", "w")  
+file = io.open("RK", "w")  
 file:write([[
 killall screen
 while(true) do
 rm -fr ../.telegram-cli
-screen ./STORM.sh
+screen ./ROKA.sh
 done
 echo -e "STORM IS RUN BOT"
 ]])  
 file:close() 
 os.execute('rm -fr $HOME/.telegram-cli')
-os.execute('./SM')
+os.execute('./RK')
  end 
 local serialize_to_file = function(data, file, uglify)  
 file = io.open(file, "w+")  
